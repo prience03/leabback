@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:minWidth="@dimen/d_380dp"
+    android:minHeight="@dimen/d_380dp"
+    android:padding="@dimen/d_20dp"
+    android:background="@drawable/tvui_dialog_bg"
+    android:layout_height="wrap_content">
+
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:background="@android:color/transparent"
+        android:layout_width="fill_parent"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+
+        <ImageView 
+            android:id="@+id/imageTitle"
+            android:layout_width="@dimen/d_48dp"
+            android:layout_height="@dimen/d_48dp"
+            android:padding="@dimen/d_5dp"/>
+        <TextView
+            android:id="@+id/title"
+            android:paddingRight="@dimen/d_8dp"
+            android:paddingLeft="@dimen/d_8dp"
+            android:textSize="@dimen/d_26dp"
+            android:textColor="@android:color/white"
+            android:gravity="left|center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d_1dp"
+        android:background="@color/dimGray"></LinearLayout>
+
+    <LinearLayout 
+        android:id="@+id/content"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+    
+        <TextView
+            android:id="@+id/message"
+            android:padding="@dimen/d_5dp"
+            android:textSize="@dimen/d_22dp"
+            android:textColor="@android:color/white"
+            android:minHeight="@dimen/d_80dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+    
+    </LinearLayout>
+
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d_1dp"
+        android:background="@color/dimGray"></LinearLayout>
+
+    <com.duolebo.tvui.widget.FocusLinearLayout
+        android:id="@+id/buttons"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:padding="@dimen/d_10dp"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+    
+        <Button 
+            android:id="@+id/positiveButton"
+            android:padding="@dimen/d_6dp"
+            android:layout_width="@dimen/d_150dp"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/d_22dp"
+            android:layout_marginLeft="@dimen/d_15dp"
+            android:layout_marginRight="@dimen/d_15dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tvui_transparent_img"
+            android:singleLine="true"/>
+    
+        <Button 
+            android:id="@+id/negativeButton"
+            android:padding="@dimen/d_6dp"
+            android:layout_marginLeft="@dimen/d_15dp"
+            android:layout_marginRight="@dimen/d_15dp"
+            android:layout_width="@dimen/d_150dp"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/d_22dp"
+            android:background="@drawable/tvui_transparent_img"
+            android:layout_height="wrap_content"
+            android:singleLine="true"/>
+    
+    </com.duolebo.tvui.widget.FocusLinearLayout>
+
+</LinearLayout>

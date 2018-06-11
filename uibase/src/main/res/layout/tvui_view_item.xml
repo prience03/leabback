@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <FrameLayout
+                android:id="@+id/frame"
+                android:layout_width="@dimen/d_150dp"
+                android:layout_height="@dimen/d_210dp"
+                android:layout_gravity="center" >
+
+                <com.duolebo.tvui.widget.RecyclingNetworkImageView
+                    android:id="@+id/background"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY" />
+
+                <com.duolebo.tvui.widget.RecyclingNetworkImageView
+                    android:id="@+id/foreground"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY" />
+
+                <ViewStub
+                    android:id="@+id/innerViewStub"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </FrameLayout>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            android:paddingBottom="@dimen/d_10dp"
+            android:singleLine="true"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/d_23sp" />
+    </LinearLayout>
+
+    <ViewStub
+        android:id="@+id/outerViewStub"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</merge>

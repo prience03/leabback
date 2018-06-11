@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.duolebo.tvui.widget.RecyclingNetworkImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/framenlayout_textbg"
+            android:scaleType="fitXY" />
+
+        <com.duolebo.tvui.widget.RecyclingNetworkImageView
+            android:id="@+id/foreground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/framenlayout_textbg"
+            android:scaleType="fitXY" />
+        <TextView
+            android:id="@+id/title_focus"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|center_horizontal"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            android:paddingBottom="@dimen/d_5dp"
+            android:paddingLeft="@dimen/d_10dp"
+            android:paddingRight="@dimen/d_10dp"
+            android:paddingTop="@dimen/d_5dp"
+            android:singleLine="true"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/d_23sp" />
+        <FrameLayout
+            android:layout_alignParentBottom="true"
+            android:id="@+id/framenlayout_textbg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d_45dp"
+            >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:ellipsize="marquee"
+                android:gravity="center"
+                android:paddingBottom="@dimen/d_5dp"
+                android:paddingTop="@dimen/d_5dp"
+                android:singleLine="true"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/d_20sp" />
+        </FrameLayout>
+    </RelativeLayout>
+
+    <ViewStub
+        android:id="@+id/viewStub"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</merge>
