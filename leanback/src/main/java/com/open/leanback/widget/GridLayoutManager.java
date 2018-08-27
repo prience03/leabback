@@ -35,13 +35,13 @@ import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.ViewGroup;
 import android.view.ViewGroup.MarginLayoutParams;
-import android.widget.Button;
 
 import com.open.leanback.os.TraceHelper;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
+
 import static android.support.v7.widget.RecyclerView.HORIZONTAL;
 import static android.support.v7.widget.RecyclerView.NO_ID;
 import static android.support.v7.widget.RecyclerView.NO_POSITION;
@@ -53,12 +53,13 @@ import static android.support.v7.widget.RecyclerView.VERTICAL;
 @SuppressWarnings("WrongConstant")
 public final class GridLayoutManager extends RecyclerView.LayoutManager {
 
-     /*
-      * LayoutParams for {@link HorizontalGridView} and {@link VerticalGridView}.
-      * The class currently does two internal jobs:
-      * - Saves optical bounds insets.
-      * - Caches focus align view center.
-      */
+
+    /*
+          * LayoutParams for {@link HorizontalGridView} and {@link VerticalGridView}.
+          * The class currently does two internal jobs:
+          * - Saves optical bounds insets.
+          * - Caches focus align view center.
+          */
     final static class LayoutParams extends RecyclerView.LayoutParams {
 
         // For placement
@@ -750,6 +751,11 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
         if (numRows < 0) throw new IllegalArgumentException();
         mNumRowsRequested = numRows;
     }
+
+    public int getNumRows() {
+        return mNumRowsRequested;
+    }
+
 
     /**
      * Set the row height. May be WRAP_CONTENT, or a size in pixels.
@@ -3426,5 +3432,17 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
                         getSelectionModeForAccessibility(recycler, state));
         info.setCollectionInfo(collectionInfo);
         leaveContext();
+    }
+
+    public boolean ensureRecyclerState() {
+        return mRecycler != null && mState != null;
+    }
+
+    public Recycler getRecycler() {
+        return mRecycler;
+    }
+
+    public State getState() {
+        return mState;
     }
 }

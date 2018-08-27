@@ -797,11 +797,11 @@ public abstract class BaseGridView extends RecyclerView {
 
     public void setSelectedPosition(final int position, final ViewHolderTask task) {
         if (task != null) {
-            RecyclerView.ViewHolder vh = findViewHolderForPosition(position);
+            ViewHolder vh = findViewHolderForPosition(position);
             if (vh == null || hasPendingAdapterUpdates()) {
                 addOnChildViewHolderSelectedListener(new OnChildViewHolderSelectedListener() {
                     public void onChildViewHolderSelected(RecyclerView parent,
-                                                          RecyclerView.ViewHolder child, int selectedPosition, int subposition) {
+                                                          ViewHolder child, int selectedPosition, int subposition) {
                         if (selectedPosition == position) {
                             removeOnChildViewHolderSelectedListener(this);
                             task.run(child);

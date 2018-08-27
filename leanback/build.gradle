@@ -31,7 +31,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.0.1'
 }
 // 项目引用的版本号，比如compile 'com.yanzhenjie:andserver:1.0.1'中的1.0.1就是这里配置的。
-version = "1.0.1"
+version = "1.0.2"
 
 // 定义两个链接，下面会用到。
 def siteUrl = "https://github.com/prience03/RxJavaApp.git"
@@ -45,7 +45,7 @@ install {
             project {
                 packaging 'aar'
                 name 'leanback'// 可选，项目名称。
-                description 'The Android TV leanback'// 可选，项目描述。
+                description 'The Android TV leanback and gridview can loadmore'// 可选，项目描述。
                 url siteUrl // 项目主页，这里是引用上面定义好。
 
                 // 软件开源协议，现在一般都是Apache License2.0吧，。

@@ -110,7 +110,7 @@ public abstract class Presenter implements FacetProvider {
          * Called to perform a task on view holder.
          * @param holder The view holder to perform task.
          */
-        public void run(Presenter.ViewHolder holder) {
+        public void run(ViewHolder holder) {
         }
     }
 

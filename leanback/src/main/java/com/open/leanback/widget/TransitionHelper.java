@@ -123,7 +123,7 @@ public final class TransitionHelper {
 
         public void addTransition(Object transitionSet, Object transition);
 
-        public void addTransitionListener(Object transition, Transition.TransitionListener listener);
+        public void addTransitionListener(Object transition, TransitionListener listener);
 
         public void removeTransitionListener(Object transition, TransitionListener listener);
 

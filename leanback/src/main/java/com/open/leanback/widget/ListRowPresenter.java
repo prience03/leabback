@@ -123,11 +123,11 @@ public class ListRowPresenter extends RowPresenter {
      * A task on the ListRowPresenter.ViewHolder that can select an item by position in the
      * HorizontalGridView and perform an optional item task on it.
      */
-    public static class SelectItemViewHolderTask extends Presenter.ViewHolderTask {
+    public static class SelectItemViewHolderTask extends ViewHolderTask {
 
         private int mItemPosition;
         private boolean mSmoothScroll = true;
-        private Presenter.ViewHolderTask mItemTask;
+        private ViewHolderTask mItemTask;
 
         public SelectItemViewHolderTask(int itemPosition) {
             setItemPosition(itemPosition);
@@ -170,7 +170,7 @@ public class ListRowPresenter extends RowPresenter {
          * Returns optional task to run when the item is selected, null for no task.
          * @return Optional task to run when the item is selected, null for no task.
          */
-        public Presenter.ViewHolderTask getItemTask() {
+        public ViewHolderTask getItemTask() {
             return mItemTask;
         }
 
@@ -178,7 +178,7 @@ public class ListRowPresenter extends RowPresenter {
          * Sets task to run when the item is selected, null for no task.
          * @param itemTask Optional task to run when the item is selected, null for no task.
          */
-        public void setItemTask(Presenter.ViewHolderTask itemTask) {
+        public void setItemTask(ViewHolderTask itemTask) {
             mItemTask = itemTask;
         }
 
@@ -189,7 +189,7 @@ public class ListRowPresenter extends RowPresenter {
                 com.open.leanback.widget.ViewHolderTask task = null;
                 if (mItemTask != null) {
                     task = new com.open.leanback.widget.ViewHolderTask() {
-                        final Presenter.ViewHolderTask itemTask = mItemTask;
+                        final ViewHolderTask itemTask = mItemTask;
                         @Override
                         public void run(RecyclerView.ViewHolder rvh) {
                             ItemBridgeAdapter.ViewHolder ibvh = (ItemBridgeAdapter.ViewHolder) rvh;
@@ -214,20 +214,20 @@ public class ListRowPresenter extends RowPresenter {
         }
 
         @Override
-        protected void onCreate(ItemBridgeAdapter.ViewHolder viewHolder) {
+        protected void onCreate(ViewHolder viewHolder) {
             if (viewHolder.itemView instanceof ViewGroup) {
                 TransitionHelper.setTransitionGroup((ViewGroup) viewHolder.itemView, true);
             }
         }
 
         @Override
-        public void onBind(final ItemBridgeAdapter.ViewHolder viewHolder) {
+        public void onBind(final ViewHolder viewHolder) {
             // Only when having an OnItemClickListner, we will attach the OnClickListener.
             if (mRowViewHolder.getOnItemViewClickedListener() != null) {
                 viewHolder.mHolder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ItemBridgeAdapter.ViewHolder ibh = (ItemBridgeAdapter.ViewHolder)
+                        ViewHolder ibh = (ViewHolder)
                                 mRowViewHolder.mGridView.getChildViewHolder(viewHolder.itemView);
                         if (mRowViewHolder.getOnItemViewClickedListener() != null) {
                             mRowViewHolder.getOnItemViewClickedListener().onItemClicked(viewHolder.mHolder,
@@ -239,14 +239,14 @@ public class ListRowPresenter extends RowPresenter {
         }
 
         @Override
-        public void onUnbind(ItemBridgeAdapter.ViewHolder viewHolder) {
+        public void onUnbind(ViewHolder viewHolder) {
             if (mRowViewHolder.getOnItemViewClickedListener() != null) {
                 viewHolder.mHolder.view.setOnClickListener(null);
             }
         }
 
         @Override
-        public void onAttachedToWindow(ItemBridgeAdapter.ViewHolder viewHolder) {
+        public void onAttachedToWindow(ViewHolder viewHolder) {
             mRowViewHolder.syncActivatedStatus(viewHolder.itemView);
         }
 
